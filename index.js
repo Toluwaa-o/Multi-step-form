@@ -180,6 +180,9 @@ backToStep1.addEventListener("click", function(){
     digits[3].style.backgroundColor = "transparent";
     digits[3].style.color = "white";
     digits[3].style.border = "1px solid white";
+    addons = 0;
+    total = 0;
+    appendDiv = ""
 })
 
 back[1].addEventListener("click", function(){
