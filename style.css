@@ -480,6 +480,7 @@ body {
     padding: 0;
     padding-top: 3em;
     position: relative;
+    bottom: unset;
   }
 
   .foot-buttons > button {
