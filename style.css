@@ -126,6 +126,8 @@ body {
     padding: 1em 1em;
     align-items: center;
     margin-top: 6em;padding-bottom: 2em;
+    position: absolute;
+    bottom: 2em;
 }
 
 .step-2 .foot-buttons {
