@@ -1,0 +1,616 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+  }
+  /*
+    3. Allow percentage-based heights in the application
+  */
+  html, body {
+    height: auto;
+  }
+  /*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  /*
+    6. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /*
+    7. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /*
+    8. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  /*
+    9. Create a root stacking context
+  */
+  #root, #__next {
+    isolation: isolate;
+  }
+
+.attribution { font-size: 11px; text-align: center; background: white; position: absolute; bottom: 0; width: 100%; padding-top: 1em; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+.step-4, .step-2, .step-5, .step-3 {
+    display: none;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    max-width: 100vw;
+    min-height: 100vh;
+    position: relative;
+    background-color: hsl(206, 94%, 87%);
+}
+
+.sidebar {
+    display: flex;
+    background-image: url(assets/images/bg-sidebar-mobile.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    padding: 2em;
+    padding-bottom: 4em;
+    margin-bottom: 0;
+    border-radius: 12px;
+}
+
+.right {
+    display: none;
+}
+
+.num {
+    border: 1px solid white;
+    padding: 0.3em 0.8em;
+    border-radius: 50%;
+    font-weight: 700;
+    color: white;
+}
+
+.sidebar > div:first-child > .num {
+    color: black;
+    border: 1px solid hsl(206, 94%, 87%);
+    background: hsl(206, 94%, 87%);
+}
+
+.main {
+    background: white;
+    padding: 2em 1em;
+    border-radius: 12px;
+    margin: 2em 1em;
+    margin-top: -2em;
+}
+
+.main > h1, .main > h2 {
+    font-size: 1.6em;
+    color: hsl(213, 96%, 18%);
+    font-weight: 700;
+    padding-bottom: 0.3em;
+}
+
+.main > p {
+    font-size: 1.1em;
+    color: hsl(231, 11%, 63%);
+    font-weight: 500;
+    padding-bottom: 1em;
+}
+
+.foot-buttons {
+    display: flex;
+    background: white;
+    padding: 1em 1em;
+    align-items: center;
+    justify-self: flex-end;
+    margin-top: 6em;padding-bottom: 2em;
+    position: absolute;
+    width: 100%;
+    bottom: 1.5em;
+}
+
+.step-2 .foot-buttons {
+  margin-top: auto;
+}
+
+.step-1 > div > form > div > label {
+    color: hsl(213, 96%, 18%);
+    font-weight: 500;
+    font-size: 0.9em;
+}
+
+.step-1 > div > form > div > p {
+    font-size: 0.9em;
+    color: hsl(354, 84%, 57%);
+    display: none;
+    font-weight: 700;
+}
+
+.step-1 > div > form > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.step-1 > div > form > input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.4em 0.7em;
+    border: 1px solid hsl(229, 24%, 87%);
+    outline: none;
+    border-radius: 3px;
+    margin-bottom: 1em;
+    transition: all 0.5s ease;
+}
+
+.step-1 > div > form > input:hover {
+  border: 1px solid hsl(213, 96%, 18%);
+}
+
+.step-1 > div > form > input::placeholder {
+    font-weight: 700;
+    color: hsl(231, 11%, 63%);
+}
+
+.foot-buttons > button {
+    margin-left: auto;
+    color: white;
+    background: hsl(213, 96%, 18%);
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    font-size: 0.9em;
+    transition: all 0.5s ease;
+}
+
+.foot-buttons > button:hover {
+  background: hsl(213, 55%, 25%);
+}
+
+.foot-buttons p {
+  color: hsl(231, 11%, 63%);
+  font-size: 0.9em;
+  font-weight: 700;
+  text-transform: capitalize;
+  transition: all 0.5s ease;
+}
+
+.foot-buttons p:hover {
+  color: hsl(213, 96%, 18%);
+}
+
+.card {
+    border: 1px solid hsl(229, 24%, 87%);
+    display: flex;
+    align-items: flex-start;
+    gap: 1em;
+    padding: 1em;
+    margin-bottom: 1em;
+    border-radius: 12px;
+    transition: all 0.5s ease;
+}
+
+.clicked {
+  border: 1px solid hsl(213, 96%, 18%);
+  background: hsl(206, 94%, 87%);
+}
+
+.card:hover {
+  border: 1px solid hsl(213, 96%, 18%);
+}
+
+.card > div > h3 {
+    font-size: 1em;
+    color: hsl(213, 96%, 18%);
+    padding-bottom: 0.1em;
+}
+
+.card > div > p {
+    color: hsl(231, 11%, 63%);
+    font-size: 0.9em;
+    font-size: 500;
+}
+
+.card > div > p + p {
+  color: hsl(213, 96%, 18%);
+  font-weight: 500;
+  font-size: 0.8em;
+}
+
+.toggle {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2em;
+  border-radius: 9px;
+  padding: 1em;
+  background: hsl(206, 94%, 87%);
+}
+
+#month {
+  color: hsl(231, 11%, 63%);
+  font-weight: 700;
+}
+
+#year {
+  color: hsl(213, 96%, 18%);
+  font-weight: 700;
+}
+
+.toggle-shape {
+  width: 2.8em;
+  height: 1.3em;
+  box-sizing: border-box;
+  padding: 0.2em;
+  border-radius: 25px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background: hsl(213, 96%, 18%);
+}
+
+.toggle-circle {
+  height: 0.95em;
+  width: 1em;
+  border-radius: 50%;
+  background: white;
+}
+
+.tiles {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7em;
+}
+
+.tile {
+  display: flex;
+  gap: 1em;
+  border: 1px solid hsl(229, 24%, 87%);
+  padding: 0.5em 1em;
+  align-items: center;
+  color: hsl(243, 100%, 62%);
+  font-weight: 700;
+  border-radius: 8px;
+  transition: all 0.5s ease;
+}
+
+.tile-bg{
+  background: hsl(206, 94%, 87%);
+}
+
+.tile:hover {
+  border: 1px;
+  border: 1px solid hsl(213, 96%, 18%);
+}
+
+.tile > p {
+  margin-left: auto;
+  font-size: 0.8em;
+}
+
+.tile > input {
+  height: 1.2em;
+  width: 2em;
+  border: 1px solid yellow;
+  outline: none;
+}
+
+.tile > input:checked {
+  accent-color: hsl(243, 100%, 62%);
+}
+
+.deets > p {
+  font-size: 0.9em;
+  color: hsl(213, 96%, 18%);
+  font-weight: 700;
+}
+
+.deets > p + p {
+  font-size: 0.8em;
+  color: hsl(231, 11%, 63%);
+  font-weight: 500;
+}
+
+.selected-stuff {
+  background: hsl(206, 94%, 87%);
+  padding: 1em;
+  border-radius: 10px;
+}
+
+.plan-sel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid hsl(231, 11%, 63%);
+  padding-bottom: 0.7em;
+}
+
+.name-link p {
+  font-size: 0.9em;
+  font-weight: 700;
+  color: hsl(213, 96%, 18%);
+}
+
+.name-link p + p {
+  font-size: 0.9em;
+  font-weight: 700;
+  color: hsl(231, 11%, 63%);
+  text-decoration: underline;
+  transition: all 0.5s ease;
+}
+
+.name-link p + p:hover {
+  color: hsl(243, 100%, 62%);
+}
+
+.plan-sel > p {
+  font-size: 0.9em;
+  font-weight: 700;
+  color: hsl(213, 96%, 18%);
+}
+
+.rest {
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.rest > div {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 0.5em;
+  align-items: center;
+}
+
+.rest > div > p {
+  color: hsl(231, 11%, 63%);
+  font-size: 0.9em;
+  padding-top: 0.5em;
+}
+
+.rest > div > p+p {
+  color: hsl(213, 96%, 18%);
+}
+
+.total {
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.total > p {
+  color: hsl(231, 11%, 63%);
+  font-size: 0.9em;
+}
+
+#total {
+  color: hsl(213, 96%, 18%);
+  font-weight: 700;
+  font-size: 1em;
+}
+
+#confirm-btn {
+  background: hsl(243, 100%, 62%);
+  padding: 0.5em 1.4em;
+  transition: all 0.5s ease;
+}
+
+#confirm-btn:hover {
+  background: hsl(243, 90%, 70%);
+}
+
+.step-5 {
+  text-align: center;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 1000px){
+  .attribution {
+    background: transparent;
+    position: relative;
+  }
+
+  main {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 2em;
+    padding: 1em;
+    background-color: white;
+    border-radius: 15px;
+  }
+
+  .step-1 {
+    height: 32em;
+    padding: 1.5em 2em;
+  }
+
+  body {
+    background-image: none;
+    max-width: 100vw;
+    max-height: 100vh;
+    position: relative;
+    display: grid;
+    place-content: center;
+  }
+
+  .sidebar {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 2em;
+      padding: 2em 4em 2em 2em;
+      margin: 0;
+      background-image: url(assets/images/bg-sidebar-desktop.svg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      grid-area: 1/1/2/2;
+      height: 100%;
+  }
+
+  .step {
+    padding: 1.5em 2.5em;
+  }
+
+  .foot-buttons {
+    margin: 0;
+    padding: 0;
+    padding-top: 3em;
+    position: relative;
+  }
+
+  .foot-buttons > button {
+    padding: 0.7em 1.3em;
+  }
+
+  .right {
+      display: flex;
+      flex-direction: column;
+      align-self: center;
+  }
+
+  .right > p {
+    font-size: 0.7em;
+    color: hsl(229, 24%, 87%);
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  .right > p+p {
+    font-size: 0.9em;
+    color: white;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+
+  .num {
+      border: 1px solid white;
+      padding: 0.3em 0.8em;
+      border-radius: 50%;
+      font-weight: 700;
+      color: white;
+      align-self: center;
+  }
+
+  .bar {
+      display: flex;
+      gap: 0.5em;
+  }
+
+  .main {
+    padding: 0;
+    margin: 0;
+  }
+
+  .main h1, .main h2 {
+    font-size: 2em;
+  }
+
+  .main > p {
+    font-size: 1em;
+  }
+
+  .step-1 > div > form > input {
+    box-sizing: border-box;
+    padding: 0.6em 0.7em;
+    border-radius: 8px;
+    margin-bottom: 1.3em;
+  }
+
+  .cards {
+    display: flex;
+    gap: 1em;
+    padding: 0em 1em;
+  }
+
+  .card {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1.5em;
+    padding: 1em 1em;
+    width: 8.5em;
+    margin-bottom: 0;
+  }
+  
+  .toggle {
+    margin: 2em 0;
+  }
+
+  .tile {
+    padding: 1.2em;
+    width: 30em;
+  }
+
+  .deets > p {
+    font-size: 1em;
+  }
+
+  .deets > p + p {
+    font-size: 0.9em;
+  }
+
+  .selected-stuff {
+    padding: 2em;
+    width: 30em;
+    box-sizing: border-box;
+  }
+  
+  .plan-sel {
+    padding-bottom: 1em;
+  }
+  
+  .name-link p {
+    font-size: 1em;
+  }
+  
+  .name-link p + p {
+    font-size: 0.9em;
+  }
+  
+  .plan-sel > p {
+    font-size: 1em;
+  }
+  
+  .rest > div > p {
+    padding-top: 0.9em;
+  }
+  
+  .total {
+    padding: 1.5em 2em;
+  }
+  
+  #total {
+    font-size: 1.1em;
+  }
+
+  .step-5 {
+    max-width: 34em;
+    min-height: 33em;
+    padding: 2em;
+  }
+}
