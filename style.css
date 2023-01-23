@@ -359,6 +359,7 @@ body {
   color: hsl(231, 11%, 63%);
   text-decoration: underline;
   transition: all 0.5s ease;
+  cursor: pointer;
 }
 
 .name-link p + p:hover {
